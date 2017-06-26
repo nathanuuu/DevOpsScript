@@ -1,4 +1,4 @@
-sudo su
+# Yum
 yum -y update
 yum makecache fast
 
