@@ -9,7 +9,7 @@ echo "export JAVA_HOME=/usr/lib/jvm/jre-1.8.0" >> /etc/bashrc
 # Install Maven
 curl -O  http://apache.cs.utah.edu/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz && tar xvf apache-maven-3.5.0-bin.tar.gz
 mv apache-maven-3.5.0 /usr/local/apache-maven-3.5.0 && rm -f apache-maven-*
-echo "export M2_HOME=/usr/local/apache-maven-3.5.0 M2=$M2_HOME/bin PATH=$M2:$PATH" >> /etc/bashrc
+echo "export M2_HOME=/usr/local/apache-maven-3.5.0 M2=/usr/local/apache-maven-3.5.0/bin PATH=/usr/local/apache-maven-3.5.0/bin:$PATH" >> /etc/bashrc
 
 # Install Git, Wget
 yum -y install git wget
