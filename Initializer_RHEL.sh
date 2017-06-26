@@ -1,4 +1,6 @@
+sudo su
 yum -y update
+yum makecache fast
 
 # Install Java
 yum -y install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64
@@ -25,3 +27,10 @@ gem install rake bundler rspec cucumber
 # Scala and SBT
 curl -O http://downloads.lightbend.com/scala/2.10.4/scala-2.10.4.rpm && yum -y install scala-2.10.4.rpm && rm -f scala-2.10.4.rpm
 wget http://dl.bintray.com/sbt/rpm/sbt-0.13.15.rpm && yum -y install sbt-0.13.15.rpm && rm -f sbt-0.13.15.rpm
+
+# Docker
+yum -y install yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --enable docker-ce-edge
+yum -y install docker-ce-17.03.1.ce-1.el7.centos
+systemctl start docker.service
