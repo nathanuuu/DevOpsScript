@@ -9,7 +9,7 @@ echo "export JAVA_HOME=/usr/lib/jvm/jre-1.8.0" >> /etc/bashrc
 # Install Maven
 curl -O  http://apache.cs.utah.edu/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz && tar xvf apache-maven-3.5.0-bin.tar.gz
 mv apache-maven-3.5.0 /usr/local/apache-maven-3.5.0 && rm -f apache-maven-*
-echo "export M2_HOME=/usr/local/apache-maven-3.5.0 M2=/usr/local/apache-maven-3.5.0/bin PATH=/usr/local/apache-maven-3.5.0/bin:$PATH" >> /etc/bashrc
+echo "export M2_HOME=/usr/local/apache-maven-3.5.0 M2=/usr/local/apache-maven-3.5.0/bin" >> /etc/bashrc
 
 # Install Git, Wget
 yum -y install git wget
@@ -39,4 +39,4 @@ service docker restart
 
 # Golang
 curl -O https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz && tar -C /usr/local -xvf go1.8.3.linux-amd64.tar.gz && rm -f go1.8.3.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/bashrc
+echo "export PATH=$PATH:/usr/local/go/bin:$M2" >> /etc/bashrc
