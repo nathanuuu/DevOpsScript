@@ -34,6 +34,8 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum-config-manager --enable docker-ce-edge
 yum -y install docker-ce-17.03.1.ce-1.el7.centos
 systemctl start docker.service
+usermod -aG docker ec2-user
+service docker restart
 
 # Golang
 curl -O https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz && tar -C /usr/local -xvf go1.8.3.linux-amd64.tar.gz && rm -f go1.8.3.linux-amd64.tar.gz
