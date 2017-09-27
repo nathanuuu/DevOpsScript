@@ -29,6 +29,12 @@ safeclose() {
     filename=$(head -1 .SafeOpenTempDirectory/.originalFileName)
     rm -f .SafeOpenTempDirectory/.originalFileName > /dev/null
     zip -ej $filename .SafeOpenTempDirectory/*
+    if [ $? -eq 0 ]; then
+      rm -rf .SafeOpenTempDirectory
+    else
+      echo "$filename" >> .SafeOpenTempDirectory/.originalFileName
+    fi
+  else
+    rm -rf .SafeOpenTempDirectory
   fi
-  rm -rf .SafeOpenTempDirectory
 }
